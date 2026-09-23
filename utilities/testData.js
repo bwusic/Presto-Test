@@ -24,6 +24,7 @@ const testData = {
 
     signUpPage: {
         goodUsername: 'msqaanalysttester@gmail.com',
+        usernameWSpecialChar: 'fatfinger!£$%^&*()-+@gmail.com',
         mismatchUsername: 'drqaanalysttester@gmail.com',
         existingUsername: 'mrqaanalysttester@gmail.com',
         badUsernameFormat: 'msqaanalysttester gmail.com',

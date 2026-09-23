@@ -40,3 +40,12 @@ test('Blank Fields And Unchecked Agreement Box', async ({ page }) => {
     await page.goto('/'); 
     await signUpPage.blankFieldsAndUncheckedAgreementBox();
 });
+
+test('Username With Special Characters', async({page}) => {
+    const pageObjectManager = new PageObjectManager(page);
+    const commonFunctions = pageObjectManager.GetCommonFunctions();
+    const signUpPage = pageObjectManager.GetSignUpPage();
+
+    await page.goto('/'); 
+    await signUpPage.usernameWSpecialCharacters();
+});

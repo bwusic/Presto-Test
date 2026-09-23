@@ -19,6 +19,7 @@ class SignUpPage {
         //Account Details
         this.goodUsername = testData.signUpPage.goodUsername;
         this.existingUsername = testData.signUpPage.existingUsername;
+        this.usernameWSpecialCharacters = testData.signUpPage.usernameWSpecialChar;
     }
 
     async goodSignUp() {
@@ -58,6 +59,12 @@ class SignUpPage {
         await expect(this.page.getByText('Enter email address.', { exact: true })).toBeVisible({ timeout: 15_000 });
         await expect(this.page.getByText('Please confirm your email address', { exact: true })).toBeVisible({ timeout: 15_000 });
         await expect(this.page.getByText('Please read and accept the terms and conditions.', { exact: true })).toBeVisible({ timeout: 15_000 });
+    }
+
+    async usernameWSpecialCharacters() {
+        await this.homepageSignUpButton.click();
+        await this.emailAddressTextbox.fill(this.usernameWSpecialCharacters);
+        await expect(this.page.getByText('Please enter a valid email address', { exact: true })).toBeVisible({ timeout: 10_000 });
     }
 }
 
