@@ -12,8 +12,6 @@ test.beforeEach(async ({ page }) => {
     await page.goto('/');
 });
 
-
-
 test('Good Signup', async ({ page }) => {
     await signUpPage.goodSignUp();
 });
@@ -21,7 +19,6 @@ test('Good Signup', async ({ page }) => {
 test('Sign Up Mismatched Email Address', async ({ page }) => {
     await signUpPage.signUpMismatchedEmailAddress();
 });
-
 
 test('Unchecked Agreement Box', async ({ page }) => {
     await signUpPage.uncheckedAgreementBox();
