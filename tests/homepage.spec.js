@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test');
 const { PageObjectManager } = require('../page/pageObjectManager');
 const commonFunction = require('../page/commonFunctions');
-const homePage = require ('../page/homePage');
+const homePage = require ('../page/homepage');
 
 
 
