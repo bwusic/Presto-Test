@@ -1,7 +1,9 @@
 const { LoginPage } = require('./loginPage');
-const { HomePage } = require('./homepage');
+const { Homepage } = require('./homepage');
 const { SignUpPage } = require('./signUpPage');
 const { CommonFunctions } = require('./commonFunctions');
+const { AccountDeletionPage } = require('./accountDeletionPage');
+
 /*
 const { RegistrationTypePage } = require('./registrationTypePage');
 //const { RepresentationPage } = require('./representationPage');

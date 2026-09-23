@@ -1,18 +1,12 @@
-const { test, expect } = require('@playwright/test');
+const { test } = require('@playwright/test');
 const { PageObjectManager } = require('../page/pageObjectManager');
-const commonFunction = require('../page/commonFunctions');
-const homePage = require ('../page/homepage');
-
-
 
 test('Homepage Access', async ({ page }) => {
     const pageObjectManager = new PageObjectManager(page);
-    const commonFunctions = pageObjectManager.GetCommonFunctions();
     const homepage = pageObjectManager.GetHomepage();
 
-
     await page.goto('/'); 
-    await homePage.validateHomePage()
+    await homepage.validateHomePage()
     }
 )
 

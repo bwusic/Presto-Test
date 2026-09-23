@@ -22,7 +22,7 @@ class SignUpPage {
         this.usernameWSpecialCharacters = testData.signUpPage.usernameWSpecialChar;
     }
 
-    async goodSignUp() {
+    async signUpGood() {
         await this.homepageSignUpButton.click();
         await this.emailAddressTextbox.fill(this.goodUsername);
         await this.confirmEmailAddressTextbox.fill(this.goodUsername);
@@ -59,16 +59,20 @@ class SignUpPage {
 
     async blankFieldsAndUncheckedAgreementBox() {
         await this.homepageSignUpButton.click();
-        await this.nextButton.click({ timeout: 15_000 });
-        await expect(this.page.getByText('Enter email address.', { exact: true })).toBeVisible({ timeout: 15_000 });
-        await expect(this.page.getByText('Please confirm your email address', { exact: true })).toBeVisible({ timeout: 15_000 });
-        await expect(this.page.getByText('Please read and accept the terms and conditions.', { exact: true })).toBeVisible({ timeout: 15_000 });
+        //do not remove the waitForTimeout below, or the getByText('Enter email address.', { exact: true }) check won't work.
+        await this.page.waitForTimeout(5_000);
+        await this.nextButton.click();
+        await expect(this.page.getByText('Enter email address.', { exact: true })).toBeVisible();
+        await expect(this.page.getByText('Please confirm your email address', { exact: true })).toBeVisible();
+        await expect(this.page.getByText('Please read and accept the terms and conditions.', { exact: true })).toBeVisible();
     }
 
-    async usernameWSpecialCharacters() {
+    async signUpUsernameWSpecialCharacters() {
         await this.homepageSignUpButton.click();
         await this.emailAddressTextbox.fill(this.usernameWSpecialCharacters);
-        await expect(this.page.getByText('Please enter a valid email address', { exact: true })).toBeVisible({ timeout: 10_000 });
+        await this.page.waitForTimeout(5_000);
+        await this.nextButton.click();
+        await expect(this.page.getByText('Please enter a valid email address', { exact: true })).toBeVisible();
     }
 }
 

@@ -1,9 +1,9 @@
 const { expect } = require('@playwright/test');
 const testData = require('../utilities/testData');
-const commonFunctions = require ('./commonFunctions');
+const { CommonFunctions } = require('./commonFunctions');
 
 
-class HomePage {    
+class Homepage {    
     constructor(page) {
         this.page = page;
         this.homePageUrl = testData.pageUrls.homePageUrl;
@@ -24,5 +24,5 @@ class HomePage {
         }
 }
 
-module.exports = { HomePage };
+module.exports = { Homepage };
 

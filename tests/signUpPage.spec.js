@@ -12,8 +12,8 @@ test.beforeEach(async ({ page }) => {
     await page.goto('/');
 });
 
-test('Good Signup', async ({ page }) => {
-    await signUpPage.goodSignUp();
+test('SignUp Good', async ({ page }) => {
+    await signUpPage.signUpGood();
 });
 
 test('Sign Up Mismatched Email Address', async ({ page }) => {
@@ -29,5 +29,5 @@ test('Blank Fields And Unchecked Agreement Box', async ({ page }) => {
 });
 
 test('Username With Special Characters', async({page}) => {
-    await signUpPage.usernameWSpecialCharacters();
+    await signUpPage.signUpUsernameWSpecialCharacters();
 });

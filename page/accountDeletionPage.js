@@ -3,7 +3,7 @@ const testData = require('../utilities/testData');
 const { CommonFunctions } = require('./commonFunctions');
 
 
-class AccountDeletion {
+class AccountDeletionPage {
     constructor(page) {
         this.page = page;
         //Homepage
@@ -78,4 +78,4 @@ Tests to consider adding
 */
 }
 
-module.exports = { AccountDeletion };
+module.exports = { AccountDeletionPage };

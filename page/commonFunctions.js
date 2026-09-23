@@ -1,5 +1,4 @@
 const { expect } = require('@playwright/test');
-const commonFunctions = require ('./commonFunctions');
 
 //const envConfig = settingsLoader.getEnvironmentConfig();
 
