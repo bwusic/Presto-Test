@@ -11,7 +11,7 @@ const testData = {
         goodPassword: 'Thisisatest123.',
         badPassword: 'badPassword',
         emptyField: '',
-        badLoginMessage: 'Login Invalid email address or password.',
+        badLoginMessage: 'Invalid email address or password.',
         badEmailFormatMessage: 'Please enter a valid email address.',
         noEmailMessage: 'A valid input is required.',
         noPaswordMessage: 'A valid password is required.',

@@ -34,7 +34,11 @@ class SignUpPage {
         await this verificationNextButton.click();
 
         --Include a test for "Send New Code"
+        
+        1. There's a set of actions after receiving the verification number from the email inbox. Please add the steps there to ensure the workflow is complete.
+        2. The website will prompt the user to add account details such as "First Name", "Last Name", etc.. Please make sure the details match the data in testData.js file.
         */
+    
     }
 
     async signUpMismatchedEmailAddress() {

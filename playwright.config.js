@@ -35,20 +35,81 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
+    // Chromium chain
     {
-      name: 'chromium',
+      name: 'chromium-homepage',
+      testMatch: 'homepage.spec.js',
       use: { ...devices['Desktop Chrome'] },
     },
-
     {
-      name: 'firefox',
+      name: 'chromium-signuppage',
+      testMatch: 'signUpPage.spec.js',
+      use: { ...devices['Desktop Chrome'] },
+      dependencies: ['chromium-homepage'],
+    },
+    {
+      name: 'chromium-loginpage',
+      testMatch: 'loginPage.spec.js',
+      use: { ...devices['Desktop Chrome'] },
+      dependencies: ['chromium-signuppage'],
+    },
+    {
+      name: 'chromium-accountdeletion',
+      testMatch: 'accountDeletion.spec.js',
+      use: { ...devices['Desktop Chrome'] },
+      dependencies: ['chromium-loginpage'],
+    },
+
+    // Firefox chain
+    {
+      name: 'firefox-homepage',
+      testMatch: 'homepage.spec.js',
       use: { ...devices['Desktop Firefox'] },
     },
-
     {
-      name: 'webkit',
+      name: 'firefox-signuppage',
+      testMatch: 'signUpPage.spec.js',
+      use: { ...devices['Desktop Firefox'] },
+      dependencies: ['firefox-homepage'],
+    },
+    {
+      name: 'firefox-loginpage',
+      testMatch: 'loginPage.spec.js',
+      use: { ...devices['Desktop Firefox'] },
+      dependencies: ['firefox-signuppage'],
+    },
+    {
+      name: 'firefox-accountdeletion',
+      testMatch: 'accountDeletion.spec.js',
+      use: { ...devices['Desktop Firefox'] },
+      dependencies: ['firefox-loginpage'],
+    },
+
+    // WebKit chain
+    {
+      name: 'webkit-homepage',
+      testMatch: 'homepage.spec.js',
       use: { ...devices['Desktop Safari'] },
     },
+    {
+      name: 'webkit-signuppage',
+      testMatch: 'signUpPage.spec.js',
+      use: { ...devices['Desktop Safari'] },
+      dependencies: ['webkit-homepage'],
+    },
+    {
+      name: 'webkit-loginpage',
+      testMatch: 'loginPage.spec.js',
+      use: { ...devices['Desktop Safari'] },
+      dependencies: ['webkit-signuppage'],
+    },
+    {
+      name: 'webkit-accountdeletion',
+      testMatch: 'accountDeletion.spec.js',
+      use: { ...devices['Desktop Safari'] },
+      dependencies: ['webkit-loginpage'],
+    },
+
 
     /* Test against mobile viewports. */
     // {

@@ -8,7 +8,7 @@ const homePage = require ('../page/homepage');
 test('Homepage Access', async ({ page }) => {
     const pageObjectManager = new PageObjectManager(page);
     const commonFunctions = pageObjectManager.GetCommonFunctions();
-    const homePage = pageObjectManager.GetHomePage();
+    const homepage = pageObjectManager.GetHomepage();
 
 
     await page.goto('/'); 

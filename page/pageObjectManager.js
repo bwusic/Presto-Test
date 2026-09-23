@@ -16,11 +16,10 @@ class PageObjectManager {
     constructor(page) {
         this.page = page;
         this.loginPage = new LoginPage(this.page);
-        this.homePage = new HomePage(this.page);
+        this.homepage = new Homepage(this.page);
         this.commonFunctions = new CommonFunctions(this.page);
         this.signUpPage = new SignUpPage(this.page);
-
-    
+        this.accountDeletionPage = new AccountDeletionPage(this.page);
     }
 
     GetCommonFunctions() {
@@ -31,12 +30,16 @@ class PageObjectManager {
         return this.loginPage;
     }
 
-    GetHomePage() {
-        return this.homePage;
+    GetHomepage() {
+        return this.homepage;
     }
 
     GetSignUpPage() {
         return this.signUpPage;
+    }
+
+    GetAccountDeletionPage() {
+        return this.accountDeletionPage
     }
 }
 

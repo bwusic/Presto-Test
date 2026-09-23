@@ -7,12 +7,12 @@ const { CommonFunctions } = require('./commonFunctions');
 class LoginPage {
     constructor(page) {
         this.page = page;
-        //Homepage Buttons
+        //Homepage
         this.homepageLoginButton = page.getByRole('button', { name: 'Sign In'});
-        //Login Page Buttons/Messages
+        //Login Page
         this.loginPageMessage = testData.loginPage.loginPageMessage
         this.loginEmailAddressTextbox = page.getByRole('textbox', { name: 'Email Address' });
-        this.passwordTextbox = page.getByRole('textbox', { name: 'Password'});
+        this.loginPasswordTextbox = page.getByRole('textbox', { name: 'Password'});
         this.loginPageLoginButton = page.getByRole('Button', { name: 'SIGN IN'});
         this.rememberMeCheckbox = page.getByRole('checkbox', { name: 'Remember me'});
         this.profileIconButton = page.getByRole('button', { name: 'Profile Icon'});
@@ -36,14 +36,14 @@ class LoginPage {
         this.noEmailMessage = testData.loginPage.noEmailMessage;
         this.noPaswordMessage = testData.loginPage.noPaswordMessage;
         this.passwordRecoveryEmail = testData.loginPage.passwordRecoveryEmail;
-        //Portal Homepage
+        //Portal Page
         this.welcomeMessage = testData.portalHomepage.welcomeMessage;
     }
 
     async goodLogin() {
         await this.homepageLoginButton.click();
         await this.loginEmailAddressTextbox.fill(this.goodUsername);
-        await this.passwordTextbox.fill(this.goodPassword);
+        await this.loginPasswordTextbox.fill(this.goodPassword);
         await this.rememberMeCheckbox.check();
         await this.loginPageLoginButton.click();
         await expect(this.page.getByRole('heading', { name: 'Welcome, QA' })).toBeVisible({ timeout: 15_000 });
@@ -55,7 +55,7 @@ class LoginPage {
     async badUsernameLogin() {
         await this.homepageLoginButton.click();
         await this.loginEmailAddressTextbox.fill(this.badUsername);
-        await this.passwordTextbox.fill(this.goodPassword);
+        await this.loginPasswordTextbox.fill(this.goodPassword);
         await this.loginPageLoginButton.click();
         await expect(this.badLoginMessage);
     }
@@ -63,7 +63,7 @@ class LoginPage {
     async badPasswordLogin() {
         await this.homepageLoginButton.click();
         await this.loginEmailAddressTextbox.fill(this.goodUsername);
-        await this.passwordTextbox.fill(this.badPassword);
+        await this.loginPasswordTextbox.fill(this.badPassword);
         await this.loginPageLoginButton.click();
         await expect(this.badLoginMessage);
     }
@@ -71,7 +71,7 @@ class LoginPage {
     async badUsernameBadPasswordLogin() {
         await this.homepageLoginButton.click();
         await this.loginEmailAddressTextbox.fill(this.badUsername);
-        await this.passwordTextbox.fill(this.badPassword);
+        await this.loginPasswordTextbox.fill(this.badPassword);
         await this.loginPageLoginButton.click();
         await expect(this.badLoginMessage);
     }
@@ -79,7 +79,7 @@ class LoginPage {
     async goodUsernameBlankPasswordLogin() {
         await this.homepageLoginButton.click();
         await this.loginEmailAddressTextbox.fill(this.goodUsername);
-        await this.passwordTextbox.fill(this.emptyField);
+        await this.loginPasswordTextbox.fill(this.emptyField);
         await this.loginPageLoginButton.click();
         await expect(this.noPaswordMessage);
     }
@@ -87,7 +87,7 @@ class LoginPage {
     async blankUsernameGoodPasswordLogin() {
         await this.homepageLoginButton.click();
         await this.loginEmailAddressTextbox.fill(this.emptyField);
-        await this.passwordTextbox.fill(this.goodPassword);
+        await this.loginPasswordTextbox.fill(this.goodPassword);
         await this.loginPageLoginButton.click();
         await expect(this.noEmailMessage);
     }
@@ -95,7 +95,7 @@ class LoginPage {
     async blankUsernameblankPasswordLogin() {
         await this.homepageLoginButton.click();
         await this.loginEmailAddressTextbox.fill(this.emptyField);
-        await this.passwordTextbox.fill(this.emptyField);
+        await this.loginPasswordTextbox.fill(this.emptyField);
         await this.loginPageLoginButton.click();
         await expect(this.noEmailMessage);
         await expect(this.noPaswordMessage);
@@ -104,7 +104,7 @@ class LoginPage {
     async badEmailFormatLogin() {
         await this.homepageLoginButton.click();
         await this.loginEmailAddressTextbox.fill(this.badUsernameFormat);
-        await this.passwordTextbox.fill(this.goodPassword);
+        await this.loginPasswordTextbox.fill(this.goodPassword);
         await this.loginPageLoginButton.click();
         await expect(this.badEmailFormatMessage);
     }
