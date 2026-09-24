@@ -4,15 +4,6 @@ const { SignUpPage } = require('./signUpPage');
 const { CommonFunctions } = require('./commonFunctions');
 const { AccountDeletionPage } = require('./accountDeletionPage');
 
-/*
-const { RegistrationTypePage } = require('./registrationTypePage');
-//const { RepresentationPage } = require('./representationPage');
-const { RegistrationPage } = require('./registrationPage');
-const { CommonFunctions } = require('./commonFunctions');
-const { PasswordRecoveryPage } = require('./passwordRecoveryPage');
-const { StatementPage } = require('./statementPage');
-const { PublicRepertoireSearchPage } = require('./publicRepertoireSearch');
-*/
 
 class PageObjectManager {
     constructor(page) {

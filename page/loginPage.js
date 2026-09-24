@@ -57,7 +57,7 @@ class LoginPage {
         await this.loginEmailAddressTextbox.fill(this.badUsername);
         await this.loginPasswordTextbox.fill(this.goodPassword);
         await this.loginPageLoginButton.click();
-        await expect(this.badLoginMessage);
+        await expect(this.page.getByText(this.badLoginMessage)).toBeVisible();
     }
 
     async badPasswordLogin() {
@@ -65,7 +65,7 @@ class LoginPage {
         await this.loginEmailAddressTextbox.fill(this.goodUsername);
         await this.loginPasswordTextbox.fill(this.badPassword);
         await this.loginPageLoginButton.click();
-        await expect(this.badLoginMessage);
+        await expect(this.page.getByText(this.badLoginMessage)).toBeVisible();
     }
 
     async badUsernameBadPasswordLogin() {
@@ -73,7 +73,7 @@ class LoginPage {
         await this.loginEmailAddressTextbox.fill(this.badUsername);
         await this.loginPasswordTextbox.fill(this.badPassword);
         await this.loginPageLoginButton.click();
-        await expect(this.badLoginMessage);
+        await expect(this.page.getByText(this.badLoginMessage)).toBeVisible();
     }
 
     async goodUsernameBlankPasswordLogin() {
@@ -81,7 +81,7 @@ class LoginPage {
         await this.loginEmailAddressTextbox.fill(this.goodUsername);
         await this.loginPasswordTextbox.fill(this.emptyField);
         await this.loginPageLoginButton.click();
-        await expect(this.noPaswordMessage);
+        await expect(this.page.getByText(this.noPaswordMessage)).toBeVisible();
     }
 
     async blankUsernameGoodPasswordLogin() {
@@ -89,7 +89,8 @@ class LoginPage {
         await this.loginEmailAddressTextbox.fill(this.emptyField);
         await this.loginPasswordTextbox.fill(this.goodPassword);
         await this.loginPageLoginButton.click();
-        await expect(this.noEmailMessage);
+        await this.page.waitForTimeout(5_000);
+        await expect(this.page.getByText(this.noEmailMessage)).toBeVisible();
     }
 
     async blankUsernameblankPasswordLogin() {
@@ -97,8 +98,8 @@ class LoginPage {
         await this.loginEmailAddressTextbox.fill(this.emptyField);
         await this.loginPasswordTextbox.fill(this.emptyField);
         await this.loginPageLoginButton.click();
-        await expect(this.noEmailMessage);
-        await expect(this.noPaswordMessage);
+        await expect(this.page.getByText(this.noEmailMessage)).toBeVisible();
+        await expect(this.page.getByText(this.noPaswordMessage)).toBeVisible();
     }
 
     async badEmailFormatLogin() {
@@ -106,7 +107,7 @@ class LoginPage {
         await this.loginEmailAddressTextbox.fill(this.badUsernameFormat);
         await this.loginPasswordTextbox.fill(this.goodPassword);
         await this.loginPageLoginButton.click();
-        await expect(this.badEmailFormatMessage);
+        await expect(this.page.getByText(this.badEmailFormatMessage)).toBeVisible();
     }
 
     async passwordReset() {
@@ -115,7 +116,8 @@ class LoginPage {
         await this.forgotPwEmailAddressTextbox.fill(this.passwordRecoveryEmail);
         await this.nextButton.click();
         await this.sendVerificationCode.click();
-        await expect(this.page.getByText('Please enter 6-digit code', { exact: true }));
+        await this.page.waitForTimeout(15_000);
+        await expect(this.page.getByText('Please enter 6-digit code', { exact: true })).toBeVisible();
     }
 
     async cancelPasswordReset() {

@@ -63,7 +63,7 @@ class AccountDeletionPage {
         await this.loginEmailAddressTextbox.fill(this.goodUsername);
         await this.loginPasswordTextbox.fill(this.goodPassword);
         await this.loginPageLoginButton.click();
-        await expect(this.badLoginMessage);
+        await expect(this.badLoginMessage).toBeVisible();
     }
 
 /*

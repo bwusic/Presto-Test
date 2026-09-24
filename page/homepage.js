@@ -18,9 +18,7 @@ class Homepage {
         await expect(this.page).toHaveURL(this.homePageUrl);
         await expect(this.signUpButton).toBeVisible();
         await expect(this.signInButton).toBeVisible();
-        //await expect(this.languangeSettingsMenu).toBeVisible();
         await expect(this.searchButton).toBeVisible(); 
-        //await expect(this.previousBannerButton).toBeVisible();
         }
 }
 
